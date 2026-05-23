@@ -2,11 +2,12 @@
 
 ## Scope
 
-This document is the entry point for build workflows. Installation steps live in [install.md](install.md). Platform-specific steps live under `docs/platforms/`.
+This document is the entry point for source build workflows. If a tagged binary already covers your use case, start with [releases.md](releases.md) instead. Installation steps live in [install.md](install.md). Platform-specific steps live under `docs/platforms/`.
 
 ## Before You Build
 
 - Install the required tools first: [install.md](install.md)
+- Install the pinned portable tools from the repo root with `mise install` if you want the documented Java/CMake/Ninja/Android SDK versions.
 - The checked-in Xcode projects intentionally do not contain a personal Apple development team.
   Select your own team in Xcode, or pass `DEVELOPMENT_TEAM=<team-id>` to `xcodebuild` when building
   targets that require Apple signing.
@@ -20,6 +21,8 @@ This document is the entry point for build workflows. Installation steps live in
   - [Simulator](simulator.md)
   - [Vision OS](platforms/visionos.md)
   - [macOS Companion](platforms/macos-companion.md)
+
+If your branch contains `scripts/ci/`, treat those checked-in scripts as the automation entry points and keep CI docs aligned with them. This branch currently documents the raw local build commands below.
 
 ## Build The macOS Runtime
 
