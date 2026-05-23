@@ -41,6 +41,8 @@ scripts/ci/verify-macos-runtime-heavy.sh
 
 That script bootstraps the Metal Toolchain and Vulkan host prerequisites unless `OPENXR_OSX_SKIP_HOST_BOOTSTRAP=1` is already suitable for the machine you are using.
 
+In GitHub Actions, the heavy workflow still evaluates on every pull request so the required check stays visible to branch protection. It only runs the expensive macOS runtime job when runtime-sensitive paths changed.
+
 ## Runtime Tests
 
 Build and run the default macOS checks with:
